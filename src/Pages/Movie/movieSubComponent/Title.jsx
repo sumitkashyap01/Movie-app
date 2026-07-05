@@ -19,13 +19,13 @@ const Title = ({ movieDetails, credits }) => {
     <>
       <div className="info h-full flex-1 flex flex-col gap-7">
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1 lg:gap-4">
             {/* <p>Genre: </p> */}
             {movieDetails ? (
-              movieDetails?.genres.map((item, index) => (
+              movieDetails?.genres.slice(0,4).map((item, index) => (
                 <p
                   key={item.id}
-                  className="bg-(--bg-surface) border-2 border-white/20 rounded-4xl px-2 py-1"
+                  className="bg-(--bg-surface) border-2 border-white/20 rounded-4xl px-2 py-1 lg:text-base text-xs"
                 >
                   {item.name.toUpperCase()}
                 </p>

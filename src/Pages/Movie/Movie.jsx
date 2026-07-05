@@ -27,7 +27,7 @@ const Movie = () => {
       <div className="absolute h-[70%] inset-0 bg-linear-to-l from-(--bg)/30 to-transparent"></div>
       <div className="absolute h-[70%] inset-0 bg-linear-to-r from-(--bg)/30 to-transparent"></div>
 
-      <div className="z-9 w-[95%] mt-140  h-screen flex items-center  md:w-[90%] md:px-20">
+      <div className="z-9 w-[95%] mt-70   h-screen flex items-center  md:w-[90%] md:px-20">
         <div
           className="w-full grid gap-10 xl:grid-cols-[3.5fr_1fr] lg:grid-cols-[3fr_1fr] grid-cols-1"
           // style={{ gridTemplateColumns: "3.5fr 1fr" }}
