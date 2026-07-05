@@ -62,14 +62,14 @@ function Hero({ movie_data }) {
                 ? movie_data?.overview?.slice(0, 240) + "..."
                 : movie_data?.overview}
             </h1>
-            <div className="flex lg:w-full">
+            <div className="flex lg:justify-center lg:w-full">
               <div className="flex justify-center items-center gap-2 bg-white/20 rounded-full p-2 w-[]">
-                {MovieDetail?.genres.map((item, index) => (
+                {MovieDetail?.genres?.slice(0,4).map((item, index) => (
                   <React.Fragment key={index}>
                     <p className="lg:text-lg text-sm cursor-pointer hover:underline hover:text-(--text-secondary)">
                       {item.name}
                     </p>
-                    {index != MovieDetail?.genres.length - 1 && <GoDotFill />}
+                    {index != MovieDetail?.genres.slice(0,4).length - 1 && <GoDotFill />}
                   </React.Fragment>
                 ))}
               </div>
