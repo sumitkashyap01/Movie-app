@@ -15,19 +15,19 @@ const Movie = () => {
   const recommendation = useFetchMovies(getRecommendations(id));
 
   return (
-    <div className="relative w-screen h-screen flex flex-col gap-20 items-center">
+    <div className="relative w-screen min-h-screen flex flex-col gap-20 items-center">
       <div
-        className=" absolute h-[70%] w-full bg-cover not-md:bg-center object-cover"
+        className=" absolute h-[70vh] w-full bg-cover not-md:bg-center object-cover"
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/original${movieDetails?.backdrop_path})`,
         }}
       ></div>
-      <div className="absolute h-[70%] inset-0 bg-linear-to-t from-(--bg) via-(--bg)/60 to-transparent"></div>
-      <div className="absolute h-[70%] inset-0 bg-linear-to-b from-(--bg)/30 to-transparent"></div>
-      <div className="absolute h-[70%] inset-0 bg-linear-to-l from-(--bg)/30 to-transparent"></div>
-      <div className="absolute h-[70%] inset-0 bg-linear-to-r from-(--bg)/30 to-transparent"></div>
+      <div className="absolute h-[70vh] inset-0 bg-linear-to-t from-(--bg) via-(--bg)/60 to-transparent"></div>
+      <div className="absolute h-[70vh] inset-0 bg-linear-to-b from-(--bg)/30 to-transparent"></div>
+      <div className="absolute h-[70vh] inset-0 bg-linear-to-l from-(--bg)/30 to-transparent"></div>
+      <div className="absolute h-[70vh] inset-0 bg-linear-to-r from-(--bg)/30 to-transparent"></div>
 
-      <div className="z-9 w-[95%] mt-70   h-screen flex items-center  md:w-[90%] md:px-20">
+      <div className="z-9 w-[95%] mt-80 flex items-center  md:w-[90%] md:px-20">
         <div
           className="w-full grid gap-10 xl:grid-cols-[3.5fr_1fr] lg:grid-cols-[3fr_1fr] grid-cols-1"
           // style={{ gridTemplateColumns: "3.5fr 1fr" }}
@@ -42,7 +42,7 @@ const Movie = () => {
       </div>
       { (
         <>
-          <div className="z-99 mt-10 sm:mt-10  md:mt-0 flex justify-center w-full">
+          <div className="z-99 sm:mt-10  md:mt-0 flex justify-center w-full">
             <div className="flex flex-col gap-5 md:w-[85%] md:p-5 p-2 rounded-2xl bg-(--surface)">
               <p className="text-(--accent) text-6xl font-extrabold font-heading">
                 CAST
