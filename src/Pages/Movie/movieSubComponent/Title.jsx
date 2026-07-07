@@ -17,12 +17,12 @@ const Title = ({ movieDetails, credits }) => {
   const min = runtime % 60;
   return (
     <>
-      <div className="info h-full flex-1 flex flex-col gap-7">
+      <div className="info h-full flex-1 flex flex-col gap-4 lg:gap-7">
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-1 lg:gap-4">
             {/* <p>Genre: </p> */}
             {movieDetails ? (
-              movieDetails?.genres.slice(0,4).map((item, index) => (
+              movieDetails?.genres.slice(0, 4).map((item, index) => (
                 <p
                   key={item.id}
                   className="bg-(--bg-surface) border-2 border-white/20 rounded-4xl px-2 py-1 lg:text-base text-xs"
@@ -39,47 +39,44 @@ const Title = ({ movieDetails, credits }) => {
             )}
           </div>
 
-          {
-            movieDetails ?
+          {movieDetails ? (
             <h1 className="text-4xl font-poppins font-extrabold">
               {movieDetails?.title}
             </h1>
-            :
+          ) : (
             <div className="w-full h-120 bg-(--surface) rounded-xl"></div>
-          }
+          )}
         </div>
-{
-  movieDetails &&
-  <>
-  <div className="flex items-center gap-4">
-          <div className="h-10 w-1 bg-(--accent) "></div>
-          <p className="italic text-md text-(--text-secondary)">
-            "{movieDetails?.tagline}"
-          </p>
-        </div>
-        <p className="text-(--text-secondary) text-md font-poppins">
-          {movieDetails?.overview}
-        </p>
-        <hr className="" />
-        <div className="flex justify-around ">
-          <div className="flex flex-col ">
-            <p className="text-(--text-secondary) text-sm">Director</p>
-            <p className="font-semibold">{director?.[0].name}</p>
-          </div>
-          <div className="flex flex-col">
-            <p className="text-(--text-secondary) text-sm">Release Date</p>
-            <p className="font-semibold">{release_date}</p>
-          </div>
-          <div className="flex flex-col">
-            <p className="text-(--text-secondary) text-sm">Runtime</p>
-            <p className="font-semibold">
-              {hour}h {min}m
+        {movieDetails && (
+          <>
+            <div className="flex items-center gap-2 lg:gap-4">
+              <div className="h-7 lg:h-10 w-1 bg-(--accent) "></div>
+              <p className="italic text-sm lg:text-md text-(--text-muted)">
+                "{movieDetails?.tagline}"
+              </p>
+            </div>
+            <p className="text-(--text-secondary) text-sm  lg:text-md font-poppins">
+              {movieDetails?.overview}
             </p>
-          </div>
-        </div>
-  
-  </>
-        }
+            <hr className="" />
+            <div className="flex justify-around ">
+              <div className="flex flex-col ">
+                <p className="text-(--text-muted) text-sm">Director</p>
+                <p className="font-semibold text-sm">{director?.[0].name}</p>
+              </div>
+              <div className="flex flex-col">
+                <p className="text-(--text-muted) text-sm">Release Date</p>
+                <p className="font-semibold text-sm">{release_date}</p>
+              </div>
+              <div className="flex flex-col">
+                <p className="text-(--text-muted) text-sm">Runtime</p>
+                <p className="font-semibold text-sm">
+                  {hour}h {min}m
+                </p>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

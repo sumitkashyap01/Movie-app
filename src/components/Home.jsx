@@ -23,7 +23,7 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [slideshow]);
   return (
-    <div className="h-screen relative scrollbar-none">
+    <div className="relative scrollbar-none">
       {slideshow?.results?.slice(0, 6).map((item, index) => (
         <div
           className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
@@ -33,7 +33,7 @@ const Home = () => {
           <Hero className="" movie_data={item} track={track} />
         </div>
       ))}
-      <div className="h-[80%]"></div>
+      <div className="min-h-[52vh] lg:min-h-[80vh]"></div>
       <div className="relative">
         <h1 className="bg-(--bg) text-(--accent) font-heading pl-5 text-6xl lg:text-8xl">
           Trending Today
@@ -67,10 +67,10 @@ const Home = () => {
           })}
           <Link
             to="/popular"
-            className="ml-8 flex justify-center items-center"
+            className="lg:ml-8 flex not-md:px-5 justify-center items-center"
           >
             {/* <div className="bg-(--surface) p-10 rounded-full hover:bg-(--surface-hover) "> */}
-            <IoIosArrowForward className="bg-(--surface) p-8 rounded-full hover:bg-(--surface-hover) text-8xl text-(--text-muted) hover:text-(--text) " />
+            <IoIosArrowForward className="bg-(--surface) lg:p-8 rounded-full hover:bg-(--surface-hover) lg:text-8xl text-6xl text-(--text-muted) hover:text-(--text) " />
             {/* </div> */}
           </Link>
         </div>
@@ -86,7 +86,7 @@ const Home = () => {
             to="/toprated"
             className="ml-8 flex justify-center items-center"
           >
-            <IoIosArrowForward className="bg-(--surface) p-8 rounded-full hover:bg-(--surface-hover) text-8xl text-(--text-muted) hover:text-(--text) " />
+            <IoIosArrowForward className="bg-(--surface) lg:p-8  rounded-full hover:bg-(--surface-hover) lg:text-8xl text-6xl text-(--text-muted) hover:text-(--text) " />
           </Link>
         </div>
       </div>

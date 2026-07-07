@@ -15,7 +15,7 @@ const Movie = () => {
   const recommendation = useFetchMovies(getRecommendations(id));
 
   return (
-    <div className="relative w-screen min-h-screen flex flex-col gap-20 items-center">
+    <div className="relative w-screen min-h-screen flex flex-col gap-10 lg:gap-20 items-center">
       <div
         className=" absolute h-[70vh] w-full bg-cover not-md:bg-center object-cover"
         style={{
@@ -29,7 +29,7 @@ const Movie = () => {
 
       <div className="z-9 w-[95%] mt-80 flex items-center  md:w-[90%] md:px-20">
         <div
-          className="w-full grid gap-10 xl:grid-cols-[3.5fr_1fr] lg:grid-cols-[3fr_1fr] grid-cols-1"
+          className="w-full grid gap-5 lg:gap-10 xl:grid-cols-[3.5fr_1fr] lg:grid-cols-[3fr_1fr] grid-cols-1"
           // style={{ gridTemplateColumns: "3.5fr 1fr" }}
         >
           <div className="left flex flex-col md:flex-row gap-6 items-center">
@@ -42,13 +42,13 @@ const Movie = () => {
       </div>
       { (
         <>
-          <div className="z-99 sm:mt-10  md:mt-0 flex justify-center w-full">
+          <div className="z-99 sm:mt-10  md:mt-0 flex justify-center">
             <div className="flex flex-col gap-5 md:w-[85%] md:p-5 p-2 rounded-2xl bg-(--surface)">
               <p className="text-(--accent) text-6xl font-extrabold font-heading">
                 CAST
               </p>
               <hr />
-              <div className="grid lg:grid-cols-6 md:grid-cols-4 sm:grid-col-3 grid-cols-2">
+              <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-3">
                 {credits?.cast?.slice(0, 15).map((item, index) => (
                   <div className="flex flex-col items-center gap-4 lg:p-5 p-3">
                     <img
@@ -58,7 +58,7 @@ const Movie = () => {
                           : placeholder
                       }
                       alt=""
-                      className="lg:w-40  rounded-xl hover:scale-105"
+                      className="lg:w-40 w-30  rounded-xl hover:scale-105"
                     />
                     <div className="flex flex-col items-center font-bold">
                       <p className="">{item.character}</p>
@@ -75,7 +75,7 @@ const Movie = () => {
             <h1 className="lg:text-5xl md:text-4xl text-3xl font-poopins font-bold">
               You Might Also Like
             </h1>
-            <div className="flex flex-wrap justify-center lg:w-[85%] w-full">
+            <div className="flex flex-wrap justify-center lg:w-[85%] w-screen ">
               {recommendation?.results?.map((item, index) => (
                 <MovieList key={item.id} data={item} />
               ))}
