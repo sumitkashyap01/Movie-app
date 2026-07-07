@@ -28,21 +28,21 @@ function Hero({ movie_data }) {
         <div className="absolute w-full z-100 bottom- lg:">
           <div className="flex flex-col justify-end w-screen min-h-[50vh] lg:min-h-[73vh] gap-5 lg:gap-0">
             <div className="flex flex-col lg:w-[50%] gap-3 lg:gap-5">
-              <div className="flex px-5 lg:ustify-center">
+              <div className="flex px-5 lg:justify-center">
                 <img
                   src={`https://image.tmdb.org/t/p/original/${engLogo?.file_path}`}
                   alt=""
                   className="self-start lg:max-w-150 lg:max-h-50 max-w-50 max-h-50   object-contain"
                 />
               </div>
-              <h1 className="self-center text-(--text-secondary) lg:text-lg text-sm  lg:max-w-[70%]  lg:font-medium line-clamp-3 lg:line-clamp-none px-5 lg:p-5">
+              <h1 className="self-center text-(--text-secondary) lg:text-lg text-sm  lg:max-w-[70%]  lg:font-medium line-clamp-3 lg:line-clamp-none px-5 lg:p-3">
                 {movie_data?.overview?.length > 220
                   ? movie_data?.overview?.slice(0, 240) + "..."
                   : movie_data?.overview}
               </h1>
               <div className="w-full">
                 <div className="flex px-5 lg:justify-center w-full">
-                  <div className="flex justify-center self-center items-center gap-2">
+                  <div className="flex justify-center items-center gap-2">
                     {MovieDetail?.genres?.slice(0, 4).map((item, index) => (
                       <React.Fragment key={index}>
                         <p className="lg:text-lg text-xs cursor-pointer hover:underline hover:text-(--text-secondary) border-2 border-white/10 rounded-4xl py-1 px-3">

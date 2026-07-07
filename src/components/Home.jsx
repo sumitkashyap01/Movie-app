@@ -60,7 +60,7 @@ const Home = () => {
           </h1>
         </div>
         {/* </Link> */}
-        <div className="flex justify-center flex-wrap">
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7">
           {popular?.results?.map((item, index) => {
             // if (index > 9) return;
             return <MovieList key={index} rank={index + 1} data={item} />;
@@ -77,16 +77,16 @@ const Home = () => {
         <h1 className="pl-5 mt-10 bg-(--bg) text-(--accent) inline-block font-heading text-8xl cursor-pointer hover:text-(--accent-hover) hover:scale-105">
           Top Rated
         </h1>
-        <div className="flex justify-center flex-wrap">
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7">
           {topRated?.results?.map((item, index) => {
             // if (index > 9) return;
             return <MovieList key={index} data={item} />;
           })}
           <Link
             to="/toprated"
-            className="ml-8 flex justify-center items-center"
+            className="flex justify-center items-center"
           >
-            <IoIosArrowForward className="bg-(--surface) lg:p-8  rounded-full hover:bg-(--surface-hover) lg:text-8xl text-6xl text-(--text-muted) hover:text-(--text) " />
+            <IoIosArrowForward className="bg-(--surface) rounded-full hover:bg-(--surface-hover) lg:text-8xl text-6xl text-(--text-muted) hover:text-(--text) " />
           </Link>
         </div>
       </div>

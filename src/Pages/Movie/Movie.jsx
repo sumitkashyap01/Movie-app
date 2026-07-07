@@ -40,7 +40,7 @@ const Movie = () => {
           </div>
         </div>
       </div>
-      { (
+      {
         <>
           <div className="z-99 sm:mt-10  md:mt-0 flex justify-center">
             <div className="flex flex-col gap-5 md:w-[85%] md:p-5 p-2 rounded-2xl bg-(--surface)">
@@ -75,14 +75,14 @@ const Movie = () => {
             <h1 className="lg:text-5xl md:text-4xl text-3xl font-poopins font-bold">
               You Might Also Like
             </h1>
-            <div className="flex flex-wrap justify-center lg:w-[85%] w-screen ">
+            <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 lg:w-[85%] w-screen ">
               {recommendation?.results?.map((item, index) => (
                 <MovieList key={item.id} data={item} />
               ))}
             </div>
           </div>
         </>
-      )}
+      }
     </div>
   );
 };
