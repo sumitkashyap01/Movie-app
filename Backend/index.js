@@ -1,9 +1,13 @@
 import express from 'express'
+require("dotenv").config();
+
 const movies = {
     user_id:1,
     watchlist:[],
     watched:[],
 }
+
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(express.json())
@@ -39,6 +43,6 @@ app.post("/movies/watchlist",(req,res)=>{
 })
 
 
-app.listen(4000,()=>{
-    console.log("server running at port 4000")
+app.listen(PORT,()=>{
+    console.log("server running at port "+PORT)
 })
