@@ -7,7 +7,10 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      "/movies": { target: "http://localhost:4000", changeOrigin: true },
+      "/movies": {
+        target: "https://movie-app-2q5c.onrender.com",
+        changeOrigin: true,
+      },
     },
   },
 });
