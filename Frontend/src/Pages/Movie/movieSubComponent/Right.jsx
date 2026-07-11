@@ -6,8 +6,17 @@ import { MdOutlinePlaylistPlay } from "react-icons/md";
 import { useUserMovieContext } from "../../../Context/UserMovieContext/userMovieContext";
 
 const Right = ({ movieDetails }) => {
-    const { addToWatched, removeFromWatched, isWatched } = useUserMovieContext()
+    const {
+      addToWatched,
+      removeFromWatched,
+      isWatched,
+      addToWatchlist,
+      removeFromWatchlist,
+      inWatchlist,
+    } = useUserMovieContext();
     const watched = isWatched(movieDetails)
+    const watchlist = inWatchlist(movieDetails);
+
     console.log(watched);
     
   return (
@@ -25,11 +34,18 @@ const Right = ({ movieDetails }) => {
             <IoMdAdd />
             <span>{`${watched ? "watched" : "Mark as watched"}`}</span>
           </button>
-          <button className=" flex items-center gap-2 bg-(--surface) p-2 rounded-[10px] border border-white/20 hover:bg-(--surface-hover)">
+          <button
+            onClick={
+              !watchlist
+                ? () => addToWatchlist(movieDetails)
+                : () => removeFromWatchlist(movieDetails)
+            }
+            className=" flex items-center gap-2 bg-(--surface) p-2 rounded-[10px] border border-white/20 hover:bg-(--surface-hover)"
+          >
             {/* <CiHeart /> */}
             <IoMdAdd />
 
-            <span>Add to watchlist</span>
+            <span>{`${watchlist ? "in watchlist" : "Add to watchlist"}`}</span>
           </button>
           <button className="flex items-center gap-2 bg-(--surface) p-2 rounded-[10px] border border-white/20 hover:bg-(--surface-hover)">
             <CiStar />
