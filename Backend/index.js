@@ -1,6 +1,5 @@
 import express from 'express'
-require("dotenv").config();
-
+import "dotenv/config";
 const movies = {
     user_id:1,
     watchlist:[],
