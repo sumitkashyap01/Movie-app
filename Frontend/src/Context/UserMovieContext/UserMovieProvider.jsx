@@ -1,36 +1,50 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { userMovieContext } from './userMovieContext'
-import axios from 'axios'
+import React, { useEffect, useRef, useState } from "react";
+import { userMovieContext } from "./userMovieContext";
+import axios from "axios";
 
-const UserMovieProvider = ({children}) => {
-    const[watchedlist, setWatchedlist] = useState([])
+const UserMovieProvider = ({ children }) => {
+  const [watchedlist, setWatchedlist] = useState([]);
 
-    console.log("watchedlist:", watchedlist);
-    console.log("length:", watchedlist.length);
-    const addToWatched = async(movie)=>{
-        await axios.post("/movies/watched",movie)
-        setWatchedlist(prev=>[...prev,movie])
+  console.log("watchedlist:", watchedlist);
+  console.log("length:", watchedlist.length);
+  const addToWatched = async (movie) => {
+    try {
+      await axios.post("/movies/watched", movie);
+      setWatchedlist((prev) => [...prev, movie]);
+    } catch (err) {
+      console.error("Backend unavailable");
     }
-    const removeFromWatched = async(movie)=>{
-        await axios.delete(`/movies/watched/${movie.id}`)
-        const newArr = watchedlist.filter(w=>w.id !== movie.id)
-        setWatchedlist(newArr)
+  };
+  const removeFromWatched = async (movie) => {
+    try {
+      await axios.delete(`/movies/watched/${movie.id}`);
+      const newArr = watchedlist.filter((w) => w.id !== movie.id);
+      setWatchedlist(newArr);
+    } catch (err) {
+      console.error("backend inactive");
     }
-    const isWatched = (movie)=>{
-        
-        const isWatched = movie ? watchedlist.some(s=>s.id === movie.id) : false
-        return isWatched
-    }
+  };
+  const isWatched = (movie) => {
+    const isWatched = movie
+      ? watchedlist.some((s) => s.id === movie.id)
+      : false;
+    return isWatched;
+  };
 
-useEffect(() => {
+  useEffect(() => {
     const fetchUserData = async () => {
-      const res = await axios.get("/movies/watched");
-      console.log(res.data);
-      
-      setWatchedlist(res.data);
-    }
-    fetchUserData()
-},[])
+      try {
+        const res = await axios.get("/movies/watched");
+        console.log(res.data);
+
+        setWatchedlist(res.data);
+      } catch (err) {
+        console.error(err);
+        setWatchedlist([]);
+      }
+    };
+    fetchUserData();
+  }, []);
 
   return (
     <userMovieContext.Provider
@@ -39,6 +53,6 @@ useEffect(() => {
       {children}
     </userMovieContext.Provider>
   );
-}
+};
 
-export default UserMovieProvider
+export default UserMovieProvider;
