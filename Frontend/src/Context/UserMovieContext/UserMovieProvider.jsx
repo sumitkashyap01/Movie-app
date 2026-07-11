@@ -6,6 +6,9 @@ const UserMovieProvider = ({ children }) => {
   const [watchedlist, setWatchedlist] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
 
+  console.log("watchlist:",watchedlist);
+  
+
 
   console.log("watchedlist:", watchedlist);
   console.log("length:", watchedlist.length);
@@ -63,7 +66,7 @@ const UserMovieProvider = ({ children }) => {
       if (!movie) return false;
       if (!Array.isArray(watchlist)) return false;
       const inWatchlist = movie
-        ? watchedlist.some((s) => s.id === movie.id)
+        ? watchlist.some((s) => s.id === movie.id)
         : false;
       return inWatchlist;
     };
@@ -101,7 +104,16 @@ const UserMovieProvider = ({ children }) => {
 
   return (
     <userMovieContext.Provider
-      value={{ watchedlist, watchlist, addToWatched, addToWatchlist, removeFromWatched, removeFromWatchlist, isWatched, inWatchlist }}
+      value={{
+        watchedlist,
+        watchlist,
+        addToWatched,
+        addToWatchlist,
+        removeFromWatched,
+        removeFromWatchlist,
+        isWatched,
+        inWatchlist,
+      }}
     >
       {children}
     </userMovieContext.Provider>

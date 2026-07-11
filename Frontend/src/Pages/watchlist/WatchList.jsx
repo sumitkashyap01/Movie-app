@@ -1,11 +1,13 @@
 import {useState,useEffect} from 'react'
 import axios from "axios";
 import MovieList from "../../components/MovieList";
+import { useUserMovieContext } from '../../Context/UserMovieContext/userMovieContext';
 
 
-const WatchList = ({ watchlist }) => {
+const WatchList = () => {
 
-  console.log(watchlist);
+  const {watchlist} = useUserMovieContext()
+  console.log("wl:",watchlist);
 
   return (
     <div className="px-5 py-20 lg:px-20 lg:py-25 flex flex-col gap-5 lg:gap-10 w-full">
