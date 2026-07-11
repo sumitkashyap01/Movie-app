@@ -25,6 +25,8 @@ const UserMovieProvider = ({ children }) => {
     }
   };
   const isWatched = (movie) => {
+    if(!movie) return false
+    if (!Array.isArray(watchedlist)) return false;
     const isWatched = movie
       ? watchedlist.some((s) => s.id === movie.id)
       : false;
