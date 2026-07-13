@@ -90,11 +90,17 @@ const Navbar = ({m_name, set_name}) => {
                 </div>
             </div>
             <div className={`lg:hidden flex flex-col overflow-hidden ${isOpened?"max-h-96 duration-300 pb-2":"max-h-0 duration-300"} px-5 md:px-15 gap-2 bg-(--surface)`}>
-                <div>Home</div>
+                <Link
+                    onClick={()=>setIsopened(prev=>!prev)}
+                    to={"/"}>Home</Link>
                 <hr/>
-                <div>Watchlist</div>
+                <Link
+                    onClick={()=>setIsopened(prev=>!prev)}
+                    to={"/watchlist"}>Watchlist</Link>
                 <hr/>
-                <div>Watched</div>
+                <Link
+                    onClick={()=>setIsopened(prev=>!prev)}gi
+                    to={"/watched"}>Watched</Link>
             </div>
         </div>
     );
