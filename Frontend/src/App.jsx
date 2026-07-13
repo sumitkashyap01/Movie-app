@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import ThemeContext from "./Context/createContext";
 import MovieContext from "./Context/MovieContext/MovieContext";
-import { MovieProvider } from "./Context/MovieContext/MovieProvider";
+import {MovieProvider} from "./Context/MovieContext/MovieProvider";
 // import Navbar from "./components/Navbar";
 // import Card from "./components/Card";
 import Home from "./components/Home";
@@ -11,46 +11,48 @@ import Search from "./components/Search";
 import WatchList from "./Pages/watchlist/WatchList";
 import Watched from "./Pages/watched/Watched";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Layout from "./Layouts/Layout";
 import Movie from "./Pages/Movie/Movie";
 import ScrollToTop from "./components/ScrollToTop";
 import UserMovieProvider from "./Context/UserMovieContext/UserMovieProvider";
+import Hamburger from "./components/Hamburger.jsx";
 // import Searchimport from "./components/Search"
 
 const App = () => {
-  const [theme, setTheme] = useState("dark");
-  useEffect(() => {
-    document.querySelector("html").classList.toggle("dark", theme === "dark");
-  }, [theme]);
+    const [theme, setTheme] = useState("dark");
+    useEffect(() => {
+        document.querySelector("html").classList.toggle("dark", theme === "dark");
+    }, [theme]);
 
-  return (
-    // <BrowserRouter>
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <MovieProvider>
-        <UserMovieProvider>
-          <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/popular" element={<Popular />} />
-                <Route path="/toprated" element={<TopRated />} />
-                <Route path="/search" element={<Search />} />
+    return (
+        // <BrowserRouter>
+        <ThemeContext.Provider value={{theme, setTheme}}>
+            <MovieProvider>
+                <UserMovieProvider>
+                    <BrowserRouter>
+                        <ScrollToTop/>
+                        <Routes>
+                            <Route element={<Layout/>}>
+                                <Route path="/" element={<Home/>}/>
+                                <Route path="/popular" element={<Popular/>}/>
+                                <Route path="/toprated" element={<TopRated/>}/>
+                                <Route path="/search" element={<Search/>}/>
 
-                <Route path="/movie/:id" element={<Movie />} />
-                <Route path="/watchlist" element={<WatchList />} />
-                <Route path="/watched" element={<Watched />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </UserMovieProvider>
-        {/* <Navbar m_name={m_name} set_name={setM_name} />
+                                <Route path="/movie/:id" element={<Movie/>}/>
+                                <Route path="/watchlist" element={<WatchList/>}/>
+                                <Route path="/watched" element={<Watched/>}/>
+
+                            </Route>
+                        </Routes>
+                    </BrowserRouter>
+                </UserMovieProvider>
+                {/* <Navbar m_name={m_name} set_name={setM_name} />
       <Search m_name={m_name}/> */}
-      </MovieProvider>
-    </ThemeContext.Provider>
-    // </BrowserRouter>
-  );
+            </MovieProvider>
+        </ThemeContext.Provider>
+        // </BrowserRouter>
+    );
 };
 
 export default App;

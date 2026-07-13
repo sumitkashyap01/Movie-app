@@ -25,7 +25,7 @@ const Title = ({ movieDetails, credits }) => {
               movieDetails?.genres.slice(0, 4).map((item, index) => (
                 <p
                   key={item.id}
-                  className="bg-(--bg-surface) border-2 border-white/20 rounded-4xl px-2 py-1 lg:text-base text-xs"
+                  className="bg-(--bg-surface)  border-2 border-(--text)/10 rounded-4xl px-2 py-1 lg:text-base text-xs"
                 >
                   {item.name.toUpperCase()}
                 </p>

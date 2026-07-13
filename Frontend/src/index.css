@@ -1,108 +1,123 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* @import "tailwindcss"; */
-
 @theme {
-  --font-sans: "Inter", sans-serif;
-  --font-heading: "Londrina Shadow", sans-serif;
-  --font-poppins: "Poppins", sans-serif
+    --font-sans: "Inter", sans-serif;
+    --font-heading: "Londrina Shadow", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
 }
 
 /* ===========================
-   CINEMATIC SLATE DESIGN SYSTEM
+   LIGHT THEME (DEFAULT)
    =========================== */
 
 :root {
-  /* ---------- Backgrounds ---------- */
+    /* Backgrounds */
+    --bg: #EDE4D3;
+    --bg-secondary: #E0D3B8;
+    --surface: #F5EEE0;
+    --surface-hover: #E5D9C3;
+    --surface-elevated: #D8C7A3;
 
-  --bg: #0F172A;
-  --bg-secondary: #111827;
-  --surface: #1E293B;
-  --surface-hover: #334155;
-  --surface-elevated: #475569;
+    /* Text */
+    --text: #2B2417;
+    --text-secondary: #55492F;
+    --text-muted: #8A7A56;
 
-  /* ---------- Text ---------- */
+    /* Accent */
+    --accent: #C2410C;
+    --accent-hover: #EA580C;
+    --accent-dark: #9A3412;
 
-  --text: #F8FAFC;
-  --text-secondary: #CBD5E1;
-  --text-muted: #94A3B8;
+    /* Status */
+    --success: #4D7C0F;
+    --warning: #B45309;
+    --error: #B91C1C;
 
-  /* ---------- Accent ---------- */
+    /* Borders */
+    --border: #C9B78D;
+    --border-light: #D8C7A3;
 
-  --accent: #F59E0B;
-  --accent-hover: #FBBF24;
-  --accent-dark: #D97706;
+    /* Shadows */
+    --shadow: rgba(43, 36, 23, .18);
 
-  /* ---------- Status ---------- */
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
 
-  --success: #22C55E;
-  --warning: #FACC15;
-  --error: #EF4444;
+    --transition: 220ms ease;
+}
+/* ===========================
+   DARK THEME
+   =========================== */
 
-  /* ---------- Borders ---------- */
+.dark {
+    /* Backgrounds */
+    --bg: #0F172A;
+    --bg-secondary: #111827;
+    --surface: #1E293B;
+    --surface-hover: #334155;
+    --surface-elevated: #475569;
 
-  --border: #334155;
-  --border-light: #475569;
+    /* Text */
+    --text: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
 
-  /* ---------- Shadows ---------- */
+    --accent: #F59E0B;
+    --accent-hover: #FBBF24;
+    --accent-dark: #D97706;
 
-  --shadow: rgba(0,0,0,.35);
+    /* Borders */
+    --border: #334155;
+    --border-light: #475569;
 
-  /* ---------- Radius ---------- */
-
-  --radius-sm: 8px;
-  --radius: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-
-  /* ---------- Animation ---------- */
-
-  --transition: 220ms ease;
+    /* Shadows */
+    --shadow: rgba(0, 0, 0, .35);
 }
 
 /* ===========================
    GLOBAL STYLES
    =========================== */
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    margin:0;
-    padding:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:Inter,sans-serif;
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, sans-serif;
+    transition:
+            background-color .3s ease,
+            color .3s ease;
 }
 
-*{
-    box-sizing:border-box;
+* {
+    box-sizing: border-box;
 }
 
-/* Selection */
-
-::selection{
-    background:var(--accent);
-    color:black;
+::selection {
+    background: var(--accent);
+    color: black;
 }
 
-/* Scrollbar */
-
-::-webkit-scrollbar{
-    width:8px;
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-::-webkit-scrollbar-track{
-    background:var(--bg);
+::-webkit-scrollbar-track {
+    background: var(--bg);
 }
 
-::-webkit-scrollbar-thumb{
-    background:var(--surface-hover);
-    border-radius:999px;
+::-webkit-scrollbar-thumb {
+    background: var(--surface-hover);
+    border-radius: 999px;
 }
 
-::-webkit-scrollbar-thumb:hover{
-    background:var(--accent);
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
 }

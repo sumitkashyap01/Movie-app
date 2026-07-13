@@ -14,7 +14,6 @@ const Home = () => {
   const todayTrending = useFetchMovies(getDailyTrending());
   const {popular,topRated} = useMovieContext()
 
-
   useEffect(() => {
     if (!slideshow?.results?.length) return;
     const count = Math.min(slideshow.results.length, 5);
@@ -37,7 +36,7 @@ const Home = () => {
       ))}
       <div className="min-h-[52vh] lg:min-h-[80vh]"></div>
       <div className="relative">
-        <h1 className="bg-(--bg) text-(--accent) font-heading pl-5 text-6xl lg:text-8xl">
+        <h1 className="bg-(--bg) text-(--accent) font-heading pl-5 text-6xl md:text-8xl">
           Trending Today
         </h1>
         <div className="w-full scrollbar-none overflow-auto">
@@ -56,13 +55,13 @@ const Home = () => {
           </div>
         </div>
         {/* <Link to={"/popular"}> */}
-        <div className="flex lg:justify-start justify-center">
-          <h1 className="lg:pl-5 mt-10 bg-(--bg) text-(--accent) inline-block font-heading text-6xl lg:text-8xl hover:text-(--accent-hover) hover:scale-105">
+        <div className="flex md:justify-start justify-center">
+          <h1 className="md:pl-5 mt-10 bg-(--bg) text-(--accent) inline-block font-heading text-6xl md:text-8xl hover:text-(--accent-hover) hover:scale-105">
             Popular
           </h1>
         </div>
         {/* </Link> */}
-        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-5 p-4">
+        <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-7 gap-5 p-4">
           {popular?.results?.map((item, index) => {
             // if (index > 9) return;
             return <MovieList key={item.id} rank={index + 1} data={item} />;
@@ -73,12 +72,12 @@ const Home = () => {
             {/* </div> */}
           </Link>
         </div>
-        <div className="flex lg:justify-start justify-center">
-          <h1 className="lg:pl-5 mt-10 bg-(--bg) text-(--accent) inline-block font-heading text-6xl lg:text-8xl hover:text-(--accent-hover) hover:scale-105">
+        <div className="flex md:justify-start justify-center">
+          <h1 className="md:pl-5 mt-10 bg-(--bg) text-(--accent) inline-block font-heading text-6xl md:text-8xl hover:text-(--accent-hover) hover:scale-105">
             Top Rated
           </h1>
         </div>
-        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-5 p-3">
+        <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-7 gap-5 p-3">
           {topRated?.results?.map((item, index) => {
             // if (index > 9) return;
             return <MovieList key={item.id} data={item} />;

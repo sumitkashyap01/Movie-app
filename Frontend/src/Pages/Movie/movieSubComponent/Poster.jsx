@@ -31,7 +31,7 @@ const Poster = ({ movieDetails, credits }) => {
                             ? "#eab308"
                             : "#ef4444",
                       trailColor: "#374151",
-                      textColor: "#fff",
+                      textColor: "var(--text)",
                       textSize: "24px",
                     })}
                     className=""
